@@ -18,7 +18,7 @@ class MesasTableSeeder extends Seeder
 
         $faker = Factory::create('pt_BR');
 
-        for ($i=1; $i <= 20; $i++) {
+        for ($i=1; $i <= 10; $i++) {
         
             DB::table('mesas')->insert([
                 'mesas' => $i,

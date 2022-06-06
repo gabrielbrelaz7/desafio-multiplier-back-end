@@ -22,8 +22,7 @@ class ClientesTableSeeder extends Seeder
             DB::table('clientes')->insert([
                 'nome' => $faker->firstName,
                 'sobrenome' => $faker->lastName,
-                'email' => $faker->email,
-                'celular' => $faker->phoneNumber,
+                'cpf' => $faker->randomNumber(5, true),
             ]);
         }
     }

@@ -17,8 +17,7 @@ class CreateClientesTable extends Migration
             $table->id();
             $table->string('nome');
             $table->string('sobrenome');
-            $table->string('email');
-            $table->string('celular');
+            $table->string('cpf');
             $table->timestamps();
         });
     }

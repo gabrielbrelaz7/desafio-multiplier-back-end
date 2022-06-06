@@ -24,10 +24,11 @@ class PedidosTableSeeder extends Seeder
             DB::table('pedidos')->insert([
                 'cliente_id' => $faker->numberBetween(1, 10000),
                 'garcom_id' => $faker->numberBetween(1, 5),
-                'mesa_id' => $faker->numberBetween(1, 20),
+                'mesa_id' => $faker->numberBetween(1, 10),
                 'status' => $faker->randomElement(['para fazer', 'em andamento', 'feito']),
                 'produtos' => json_encode($faker->words(3)),
-                'total' => $faker->randomNumber(2, true)
+                'total' => $faker->randomNumber(2, true),
+                'created_at' => $faker->date()
             ]);
         }
     }
