@@ -15,7 +15,7 @@ class CreateCardapiosTable extends Migration
     {
         Schema::create('cardapios', function (Blueprint $table) {
             $table->id();
-            $table->string('tipo');
+            $table->string('nome');
             $table->timestamps();
         });
     }

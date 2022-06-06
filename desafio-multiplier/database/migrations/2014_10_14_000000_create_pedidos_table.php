@@ -31,7 +31,7 @@ class CreatePedidosTable extends Migration
             ->on('mesas')
             ->onDelete('cascade');
             $table->string('status');
-            $table->string('itens');
+            $table->json('produtos');
             $table->float('total');
             $table->timestamps();
         });
