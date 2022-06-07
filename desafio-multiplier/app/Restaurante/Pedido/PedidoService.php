@@ -108,10 +108,12 @@ class PedidoService implements PedidoServiceInterface
     }
 
 
-    public function getPedidosGarcom()
+    public function getPedidosGarcom($garcomID)
     {
 
-        $pedidos = Pedido::where('status', 'em andamento')->get();
+        $pedidos = Pedido::where('status', 'em andamento')
+        ->where('garcom_id', $garcomID)
+        ->get();
 
         return [
             'pedidos' => $pedidos

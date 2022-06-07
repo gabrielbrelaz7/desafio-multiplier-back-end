@@ -25,10 +25,14 @@ class CardapioController extends Controller
             'nomeCardapio' => 'required|string',  
             'nomeProduto' => 'required|json',
             'descricaoProduto' => 'required|json',
-            'precoProduto' => 'required|json'
+            'precoProduto' => 'required|json',
+            'requester' => 'required|string'
         ]);
         if($dados->fails()){
             return response()->json($dados->errors()->toJson(), 400);
+        }
+        else if($request->requester !== 'gerente'){
+            return response()->json("Usuário não tem privilégios para realizer esta ação.", 401);
         }
         else{
             $response = $this->cardapioService->cadastrar($dados);

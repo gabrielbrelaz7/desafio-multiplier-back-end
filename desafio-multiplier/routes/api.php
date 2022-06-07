@@ -25,37 +25,40 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 
-Route::group(['middleware' => 'auth:api'], function () {   
-    Route::post('usuarios', [UserController::class, 'register']);
+Route::group(['middleware' => 'auth:api'], function () {  
+    Route::post('usuarios', [UserController::class, 'register']); 
     Route::get('usuarios', [UserController::class, 'get']); 
     Route::patch('usuarios/{id}', [UserController::class, 'update']); 
 });
 
 
 Route::group(['prefix' => 'clientes'], function () {
-    Route::post('login', [AuthController::class, 'login']);
-
     Route::group(['middleware' => 'auth:api'], function () {
-        
+        Route::post('cadastrar', [ClienteController::class, 'cadastrarCliente']);
+        Route::get('listar/{id}', [ClienteController::class, 'listarPedidos']);
     });
 });
 
-Route::post('clientes/cadastrar', [ClienteController::class, 'cadastrarCliente']);
-Route::post('mesas/cadastrar', [MesaController::class, 'cadastrarMesa']);
-Route::post('cardapios/cadastrar', [CardapioController::class, 'cadastrarCardapio']);
-Route::post('pedidos/cadastrar', [PedidoController::class, 'cadastrarPedido']);
+
+Route::group(['prefix' => 'pedidos'], function () {
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::post('cadastrar', [PedidoController::class, 'cadastrarPedido']);
+        Route::get('listar/garcom/{id}', [PedidoController::class, 'listarPedidosGarcom']);
+        Route::get('listar/cozinheiro', [PedidoController::class, 'listarPedidosCozinheiro']);
+        Route::get('listar', [PedidoController::class, 'listarPedidos']);
+    });
+});
 
 
-Route::get('pedidos/listar/garcom', [PedidoController::class, 'listarPedidosGarcom']);
-Route::get('pedidos/listar/cozinheiro', [PedidoController::class, 'listarPedidosCozinheiro']);
-Route::get('pedidos/listar', [PedidoController::class, 'listarPedidos']);
-
-
-Route::get('clientes/listar/{id}', [ClienteController::class, 'listarPedidos']);
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::post('mesas/cadastrar', [MesaController::class, 'cadastrarMesa']);
+    Route::post('cardapios/cadastrar', [CardapioController::class, 'cadastrarCardapio']);
+});
 
 
 
-Route::get('faker/clientes/{quantidade}', [FakerController::class, 'cadastrarClientes']);
-Route::get('faker/cardapios/{quantidade}', [FakerController::class, 'cadastrarCardapios']);
-Route::get('faker/produtos/{quantidade}', [FakerController::class, 'cadastrarProdutos']);
-Route::get('faker/pedidos/{quantidade}', [FakerController::class, 'cadastrarPedidos']);
+// Caso precise utilizar Faker PHP como requisição na API
+    // Route::get('faker/clientes/{quantidade}', [FakerController::class, 'cadastrarClientes']);
+    // Route::get('faker/cardapios/{quantidade}', [FakerController::class, 'cadastrarCardapios']);
+    // Route::get('faker/produtos/{quantidade}', [FakerController::class, 'cadastrarProdutos']);
+    // Route::get('faker/pedidos/{quantidade}', [FakerController::class, 'cadastrarPedidos']);

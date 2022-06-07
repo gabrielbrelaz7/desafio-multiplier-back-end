@@ -16,11 +16,15 @@ class UserController extends Controller
             'name' => 'required|string|between:2,100',
             'email' => 'required|string|email|max:100|unique:users',
             'type' => 'required|string',
+            'requester' => 'required|string',
             'password' => 'required|string|confirmed|min:6',
         ]);
 
         if($validator->fails()){
             return response()->json($validator->errors()->toJson(), 400);
+        }
+        else if($request->requester !== 'gerente'){
+            return response()->json("Usuário não tem privilégios para realizer esta ação.", 401);
         }
         $user = User::create(array_merge(
                     $validator->validated(),

@@ -27,10 +27,14 @@ class PedidoController extends Controller
             'mesa_id' => 'required|integer',  
             'status' => 'required|string',
             'produtos' => 'required|json',
-            'total' => 'required|numeric'
+            'total' => 'required|numeric',
+            'requester' => 'required|string'
         ]);
         if($dados->fails()){
             return response()->json($dados->errors()->toJson(), 400);
+        }
+        else if($request->requester !== 'gerente' || $request->requester !== 'garcom' ){
+            return response()->json("Usuário não tem privilégios para realizer esta ação.", 401);
         }
         else{
             $response = $this->pedidoService->cadastrar($dados);
@@ -42,48 +46,67 @@ class PedidoController extends Controller
     public function listarPedidos(Request $request)
     {
 
-        if($request->cliente) {
-            $response = $this->pedidoService->getPedidosPorCliente($request->cliente);
-            return response()->json($response, 200);
+        if($request->requester !== 'gerente') {
+
+            if($request->cliente) {
+                $response = $this->pedidoService->getPedidosPorCliente($request->cliente);
+                return response()->json($response, 200);
+            }
+
+            else if($request->mesa) {
+                $response = $this->pedidoService->getPedidosPorMesa($request->mesa);
+                return response()->json($response, 200);
+            }
+
+            else if($request->dia) {
+                $response = $this->pedidoService->getPedidosPorDia($request->dia);
+                return response()->json($response, 200);
+            }
+
+            else if($request->semana === true && $request->semana) {
+                $response = $this->pedidoService->getPedidosPorSemana();
+                return response()->json($response, 200);
+            }
+            
+            else if($request->mes) {
+                $response = $this->pedidoService->getPedidosPorMes($request->mes);
+                return response()->json($response, 200);
+            }
+            
+            else{
+                $response = $this->pedidoService->getPedidos();
+                return response()->json($response, 200);
+            }
         }
 
-        else if($request->mesa) {
-            $response = $this->pedidoService->getPedidosPorMesa($request->mesa);
-            return response()->json($response, 200);
-        }
-
-        else if($request->dia) {
-            $response = $this->pedidoService->getPedidosPorDia($request->dia);
-            return response()->json($response, 200);
-        }
-
-        else if($request->semana === true && $request->semana) {
-            $response = $this->pedidoService->getPedidosPorSemana();
-            return response()->json($response, 200);
-        }
-        
-        else if($request->mes) {
-            $response = $this->pedidoService->getPedidosPorMes($request->mes);
-            return response()->json($response, 200);
-        }
-        
         else{
-            $response = $this->pedidoService->getPedidos();
-            return response()->json($response, 200);
+            return response()->json("Usuário não tem privilégios para realizer esta ação.", 401);
         }
     }
 
 
-    public function listarPedidosGarcom()
+    public function listarPedidosGarcom($id)
     {
-        $response = $this->pedidoService->getPedidosGarcom();
-        return response()->json($response, 200);
+
+        if($request->requester !== 'gerente' || $request->requester !== 'garcom') {
+            $response = $this->pedidoService->getPedidosGarcom($id);
+            return response()->json($response, 200);
+        }
+
+        else{
+            return response()->json("Usuário não tem privilégios para realizer esta ação.", 401);
+        }
     }
 
 
     public function listarPedidosCozinheiro()
     {
-        $response = $this->pedidoService->getPedidosCozinheiro();
-        return response()->json($response, 200);
+        if($request->requester !== 'gerente' || $request->requester !== 'cozinheiro') {
+            $response = $this->pedidoService->getPedidosCozinheiro();
+            return response()->json($response, 200);
+        }
+        else{
+            return response()->json("Usuário não tem privilégios para realizer esta ação.", 401)
+        }
     }
 }
