@@ -14,6 +14,7 @@ class MesaService implements MesaServiceInterface
         $mesa = Mesa::create(array_merge(
             $dados->validated()
         ));
+        
         return [
             'message' => 'Mesa cadastrada com sucesso',
             'Mesa' => $mesa

@@ -7,6 +7,10 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\MesaController;
+use App\Http\Controllers\CardapioController;
+use App\Http\Controllers\PedidoController;
+
+
 use App\Http\Controllers\FakerController;
 
 
@@ -38,6 +42,17 @@ Route::group(['prefix' => 'clientes'], function () {
 
 Route::post('clientes/cadastrar', [ClienteController::class, 'cadastrarCliente']);
 Route::post('mesas/cadastrar', [MesaController::class, 'cadastrarMesa']);
+Route::post('cardapios/cadastrar', [CardapioController::class, 'cadastrarCardapio']);
+Route::post('pedidos/cadastrar', [PedidoController::class, 'cadastrarPedido']);
+
+
+Route::get('pedidos/listar/garcom', [PedidoController::class, 'listarPedidosGarcom']);
+Route::get('pedidos/listar/cozinheiro', [PedidoController::class, 'listarPedidosCozinheiro']);
+Route::get('pedidos/listar', [PedidoController::class, 'listarPedidos']);
+
+
+Route::get('clientes/listar/{id}', [ClienteController::class, 'listarPedidos']);
+
 
 
 Route::get('faker/clientes/{quantidade}', [FakerController::class, 'cadastrarClientes']);

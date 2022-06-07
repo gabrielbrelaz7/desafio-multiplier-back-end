@@ -33,4 +33,31 @@ class ClienteController extends Controller
             return response()->json($response, 201);
         }
     }
+
+
+    public function listarPedidos(Request $request)
+
+    {
+        
+        if($request->maior == true && $request->maior) {
+            $response = $this->clienteService->getMaiorPedido($request->id);
+            return response()->json($response, 200);
+        }
+
+        else if($request->primeiro == true && $request->primeiro) {
+            $response = $this->clienteService->getPrimeiroPedido($request->id);
+            return response()->json($response, 200);
+        }
+
+        else if($request->ultimo == true && $request->ultimo) {
+            $response = $this->clienteService->getUltimoPedido($request->id);
+            return response()->json($response, 200);
+        }
+        
+        else{
+            $response = $this->clienteService->getPedidos($request->id);
+            return response()->json($response, 200);
+        }
+    }
+
 }

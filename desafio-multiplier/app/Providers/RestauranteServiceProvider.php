@@ -13,6 +13,8 @@ class RestauranteServiceProvider extends ServiceProvider
         return [           
             'Cliente',
             'Mesa',
+            'Cardapio',
+            'Pedido',
         ];
     }
 

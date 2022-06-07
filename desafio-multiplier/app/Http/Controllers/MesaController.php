@@ -16,6 +16,7 @@ class MesaController extends Controller
     ){
         $this->mesaService = $mesaService;    
     }
+    
 
     public function cadastrarMesa(Request $request)
     {
