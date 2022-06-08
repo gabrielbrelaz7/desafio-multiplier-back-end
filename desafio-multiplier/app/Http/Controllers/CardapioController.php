@@ -31,7 +31,7 @@ class CardapioController extends Controller
         if($dados->fails()){
             return response()->json($dados->errors()->toJson(), 400);
         }
-        else if($request->requester !== 'gerente'){
+        else if($dados->validated()['requester'] !== 'gerente'){
             return response()->json("Usuário não tem privilégios para realizer esta ação.", 401);
         }
         else{

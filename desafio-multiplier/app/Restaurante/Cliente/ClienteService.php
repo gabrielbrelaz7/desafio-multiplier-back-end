@@ -17,7 +17,7 @@ class ClienteService implements ClienteServiceInterface
         ));
 
         return [
-            'message' => 'Cliente cadastrado com sucesso',
+            'mensagem' => 'Cliente cadastrado com sucesso',
             'cliente' => $cliente
         ];
 
@@ -39,7 +39,7 @@ class ClienteService implements ClienteServiceInterface
     public function getMaiorPedido($id)
     {
 
-        $maiorPedido = Pedido::where('cliente_id', $id)->orderBy('total', 'desc')->get()[0];
+        $maiorPedido = Pedido::where('cliente_id', $id)->orderBy('total', 'desc')->get()->first();
 
          return [
              'maiorPedido' => $maiorPedido
@@ -51,7 +51,7 @@ class ClienteService implements ClienteServiceInterface
     public function getPrimeiroPedido($id)
     {
 
-        $primeiroPedido = Pedido::where('cliente_id', $id)->orderBy('created_at', 'desc')->get()[0];
+        $primeiroPedido = Pedido::where('cliente_id', $id)->orderBy('created_at', 'desc')->get()->first();
 
          return [
              'primeiroPedido' => $primeiroPedido
@@ -62,7 +62,7 @@ class ClienteService implements ClienteServiceInterface
     public function getUltimoPedido($id)
     {
 
-        $ultimoPedido = Pedido::where('cliente_id', $id)->orderBy('created_at', 'asc')->get()[0];
+        $ultimoPedido = Pedido::where('cliente_id', $id)->orderBy('created_at', 'asc')->get()->first();
 
          return [
              'ultimoPedido' => $ultimoPedido

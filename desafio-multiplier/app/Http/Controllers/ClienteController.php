@@ -42,7 +42,7 @@ class ClienteController extends Controller
     public function listarPedidos(Request $request)
     {
 
-        if($request->requester !== 'gerente'){
+        if($request->requester === 'gerente'){
         
             if($request->maior == true && $request->maior) {
                 $response = $this->clienteService->getMaiorPedido($request->id);

@@ -16,7 +16,7 @@ class MesaService implements MesaServiceInterface
         ));
         
         return [
-            'message' => 'Mesa cadastrada com sucesso',
+            'mensagem' => 'Mesa cadastrada com sucesso',
             'Mesa' => $mesa
         ];
 

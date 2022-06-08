@@ -26,7 +26,7 @@ class CardapioService implements CardapioServiceInterface
 
         if($produtos && $cardapio) {
             return [
-                'message' => 'Cardapio cadastrado com sucesso',
+                'mensagem' => 'Cardapio cadastrado com sucesso',
                 'cardapio' => $cardapio,
                 'produtos' => $produtos
             ];

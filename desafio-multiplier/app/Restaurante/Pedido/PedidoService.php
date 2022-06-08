@@ -25,7 +25,7 @@ class PedidoService implements PedidoServiceInterface
         $pedido->save();
         
         return [
-            'message' => 'Pedido cadastrado com sucesso',
+            'mensagem' => 'Pedido cadastrado com sucesso',
             'pedido' => $pedido
         ];
 
@@ -43,17 +43,6 @@ class PedidoService implements PedidoServiceInterface
 
     }
 
-
-    public function getPedidosPorCliente($clienteID)
-    {
-
-        $pedidosCliente = Pedido::where('cliente_id', $clienteID)->get();
-
-        return [
-            'pedidosCliente' => $pedidosCliente
-        ];
-
-    }
 
 
     public function getPedidosPorMesa($mesaID)
@@ -102,7 +91,7 @@ class PedidoService implements PedidoServiceInterface
         $pedidosDia = Pedido::whereMonth('created_at', $mes)->get();
 
         return [
-            'pedidosDia' => $pedidosDia
+            'pedidosMes' => $pedidosDia
         ];
 
     }
