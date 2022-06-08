@@ -15,6 +15,7 @@ class RestauranteServiceProvider extends ServiceProvider
             'Mesa',
             'Cardapio',
             'Pedido',
+            'User'
         ];
     }
 

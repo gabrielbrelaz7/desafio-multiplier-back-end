@@ -20,16 +20,19 @@ Route::group(['prefix' => 'auth'], function () {
     Route::group(['middleware' => 'auth:api'], function () {
         Route::post('logout', [AuthController::class, 'logout']);
         Route::post('refresh', [AuthController::class, 'refresh']); 
-        Route::post('me', [AuthController::class, 'me']);    
+        Route::get('me', [AuthController::class, 'me']);    
     });
 });
 
 
-Route::group(['middleware' => 'auth:api'], function () {  
-    Route::post('usuarios', [UserController::class, 'register']); 
-    Route::get('usuarios', [UserController::class, 'get']); 
-    Route::patch('usuarios/{id}', [UserController::class, 'update']); 
+Route::group(['prefix' => 'usuarios'], function () {
+    Route::group(['middleware' => 'auth:api'], function () {  
+        Route::post('cadastrar', [UserController::class, 'cadastrarUsuario']); 
+        Route::get('listar', [UserController::class, 'listarUsuarios']); 
+        Route::put('atualizar/{id}', [UserController::class, 'atualizarUsuario']); 
+    });
 });
+
 
 
 Route::group(['prefix' => 'clientes'], function () {

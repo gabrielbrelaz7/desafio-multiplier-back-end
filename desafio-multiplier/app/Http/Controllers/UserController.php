@@ -4,15 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Restaurante\User\UserServiceInterface;
 use App\Models\User;
 use Validator;
 
 class UserController extends Controller
 {
+
+    private $userService;
+
+    public function __construct(
+        UserServiceInterface $userService
+    ){
+        $this->userService = $userService;    
+    }
     
 
-    public function register(Request $request) {
-        $validator = Validator::make($request->all(), [
+    public function cadastrarUsuario(Request $request) 
+    {
+
+        $dados = Validator::make($request->all(), [
             'name' => 'required|string|between:2,100',
             'email' => 'required|string|email|max:100|unique:users',
             'type' => 'required|string',
@@ -20,53 +31,71 @@ class UserController extends Controller
             'password' => 'required|string|confirmed|min:6',
         ]);
 
-        if($validator->fails()){
-            return response()->json($validator->errors()->toJson(), 400);
+        if($dados->fails()){
+            return response()->json($dados->errors()->toJson(), 400);
         }
         else if($request->requester !== 'gerente'){
             return response()->json("Usuário não tem privilégios para realizer esta ação.", 401);
         }
-        $user = User::create(array_merge(
-                    $validator->validated(),
-                    ['password' => bcrypt($request->password)]
-                ));
-        return response()->json([
-            'mensagem' => 'Usuário cadastrado com sucesso',
-            'usuário' => $user
-        ], 201);
-    }
-
-
-    public function get()
-    {
-
-        $users = User::all();
-
-        if ($users) {
-            return response()->json([$users], 200);
+        else if($request->type !== 'gerente' && $request->type !== 'garcom' && $request->type !== 'cozinheiro'){
+            return response()->json("O usuário deve ser gerente, garçom ou cozinheiro.", 401);
         }
-        else {
-            return response()->json("Nenhum usuário cadastrado", 401);
+        else{
+            $response = $this->userService->cadastrar($dados);
+            return response()->json($response, 201);
         }
-
     }
 
 
-    public function update(Request $request, $id)
+    public function listarUsuarios()
     {
-
-        $user = User::findOrFail($id) -> update([
-            'name' => $request ->name,
-            'email' => $request ->email,
-            'password' => bcrypt($request->password)
-            ]
-        );
-
-        return response()->json([
-            'mensagem' => 'Usuário atualizado com sucesso',
-            'usuário' => $user
-        ], 201);
-
+        $response = $this->userService->listar();
+        return response()->json($response, 201);
     }
+
+
+    public function atualizarUsuario(Request $request, $id)
+    {
+            $dados = Validator::make($request->all(), [
+                'name' => 'required|string|between:2,100',
+                'email' => 'required|string|email|max:100|unique:users',
+                'requester' => 'required|string',
+                'password' => 'required|string|min:6',
+            ]);
+
+            if($dados->fails()){
+                return response()->json($dados->errors()->toJson(), 400);
+            }
+            else if($request->requester !== 'gerente'){
+                return response()->json("Usuário não tem privilégios para realizar esta ação.", 401);
+            }
+            else {
+                $response = $this->userService->atualizar($id, $dados);
+                return response()->json($response, 200);
+            }
+    }
+
+
+
+    public function deletarUsuario(Request $request)
+    {
+            $dados = Validator::make($request->all(), [
+                'id' => 'required|integer',
+                'requester' => 'required|string',
+            ]);
+
+            if($dados->fails()){
+                return response()->json($dados->errors()->toJson(), 400);
+            }
+            else if($request->requester !== 'gerente'){
+                return response()->json("Usuário não tem privilégios para realizer esta ação.", 401);
+            }
+            else {
+                $response = $this->userService->deletar($dados);
+                return response()->json($response, 201);
+            }
+    }
+
+
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Api;
 
 use Tests\TestCase;
 use App\Models\User;
@@ -47,7 +47,7 @@ class ClienteTest extends TestCase
     {
 
         $user = User::factory()->create();
-        $response = $this->actingAs($user, 'api')->json('GET', '/api/clientes/listar/9995?requester=gerente');
+        $response = $this->actingAs($user, 'api')->json('GET', '/api/clientes/listar/257?requester=gerente');
         $response->assertStatus(200);
 
         $response->assertJsonStructure(
@@ -72,7 +72,7 @@ class ClienteTest extends TestCase
     {
 
         $user = User::factory()->create();
-        $response = $this->actingAs($user, 'api')->json('GET', '/api/clientes/listar/9995?requester=gerente&maior=true');
+        $response = $this->actingAs($user, 'api')->json('GET', '/api/clientes/listar/257?requester=gerente&maior=true');
         $response->assertStatus(200);
 
         $response->assertJsonStructure(
@@ -97,7 +97,7 @@ class ClienteTest extends TestCase
     {
 
         $user = User::factory()->create();
-        $response = $this->actingAs($user, 'api')->json('GET', '/api/clientes/listar/9995?requester=gerente&primeiro=true');
+        $response = $this->actingAs($user, 'api')->json('GET', '/api/clientes/listar/257?requester=gerente&primeiro=true');
         $response->assertStatus(200);
 
         $response->assertJsonStructure(
@@ -123,7 +123,7 @@ class ClienteTest extends TestCase
     {
 
         $user = User::factory()->create();
-        $response = $this->actingAs($user, 'api')->json('GET', '/api/clientes/listar/21?requester=gerente&ultimo=true');
+        $response = $this->actingAs($user, 'api')->json('GET', '/api/clientes/listar/257?requester=gerente&ultimo=true');
         $response->assertStatus(200);
 
         $response->assertJsonStructure(

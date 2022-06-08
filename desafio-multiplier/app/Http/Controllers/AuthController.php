@@ -24,13 +24,12 @@ class AuthController extends Controller
             return response()->json($validator->errors(), 422);
         }
         if (! $token = auth()->attempt($validator->validated())) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['error' => 'Não foi possível realizar o login'], 401);
         }
         return $this->createNewToken($token);
     }
 
     
-
     public function me()
     {
         return response()->json(auth()->user());
@@ -41,7 +40,7 @@ class AuthController extends Controller
     {
         auth()->logout();
 
-        return response()->json(['message' => 'Successfully logged out']);
+        return response()->json(['mensagem' => 'Deslogado com sucesso']);
     }
 
   
@@ -54,7 +53,7 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
+            'expires_in' => auth()->factory()->getTTL() * 120,
         ]);
     }
 }

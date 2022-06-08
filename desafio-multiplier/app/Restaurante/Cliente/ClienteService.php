@@ -12,14 +12,21 @@ class ClienteService implements ClienteServiceInterface
     public function cadastrar($dados)
     {
 
-        $cliente = Cliente::create(array_merge(
-            $dados->validated()
-        ));
-
-        return [
-            'mensagem' => 'Cliente cadastrado com sucesso',
-            'cliente' => $cliente
-        ];
+        try {
+            $cliente = Cliente::create(array_merge(
+                $dados->validated()
+            ));
+    
+            return [
+                'mensagem' => 'Cliente cadastrado com sucesso',
+                'cliente' => $cliente
+            ];
+    
+        } catch (Exception $e) {
+            return [
+                'error' => $e->getMessage()
+            ];
+        }
 
     }
 
@@ -27,11 +34,18 @@ class ClienteService implements ClienteServiceInterface
     public function getPedidos($id)
     {
 
-        $pedidos = Pedido::where('cliente_id', $id)->get();
+         try {
+            $pedidos = Pedido::where('cliente_id', $id)->get();
         
-         return [
-             'pedidos' => $pedidos
-         ];
+            return [
+                'pedidos' => $pedidos
+            ];
+    
+        } catch (Exception $e) {
+            return [
+                'error' => $e->getMessage()
+            ];
+        }
 
     }
 
@@ -39,11 +53,19 @@ class ClienteService implements ClienteServiceInterface
     public function getMaiorPedido($id)
     {
 
-        $maiorPedido = Pedido::where('cliente_id', $id)->orderBy('total', 'desc')->get()->first();
+         try {
+            $maiorPedido = Pedido::where('cliente_id', $id)->orderBy('total', 'desc')->get()->first();
 
-         return [
-             'maiorPedido' => $maiorPedido
-         ];
+            return [
+                'maiorPedido' => $maiorPedido
+            ];
+   
+    
+        } catch (Exception $e) {
+            return [
+                'error' => $e->getMessage()
+            ];
+        }
 
     }
 
@@ -51,23 +73,38 @@ class ClienteService implements ClienteServiceInterface
     public function getPrimeiroPedido($id)
     {
 
-        $primeiroPedido = Pedido::where('cliente_id', $id)->orderBy('created_at', 'desc')->get()->first();
+         try {
+            $primeiroPedido = Pedido::where('cliente_id', $id)->orderBy('created_at', 'desc')->get()->first();
 
-         return [
-             'primeiroPedido' => $primeiroPedido
-         ];
+            return [
+                'primeiroPedido' => $primeiroPedido
+            ];
+   
+    
+        } catch (Exception $e) {
+            return [
+                'error' => $e->getMessage()
+            ];
+        }
 
     }
 
     public function getUltimoPedido($id)
     {
 
-        $ultimoPedido = Pedido::where('cliente_id', $id)->orderBy('created_at', 'asc')->get()->first();
+         try {
+            $ultimoPedido = Pedido::where('cliente_id', $id)->orderBy('created_at', 'asc')->get()->first();
 
-         return [
-             'ultimoPedido' => $ultimoPedido
-         ];
-
+            return [
+                'ultimoPedido' => $ultimoPedido
+            ];
+   
+        } catch (Exception $e) {
+            return [
+                'error' => $e->getMessage()
+            ];
+        }
+    
     }
 
 
