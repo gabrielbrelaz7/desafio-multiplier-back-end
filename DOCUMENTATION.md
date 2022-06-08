@@ -12,74 +12,24 @@ O teste consiste em fazer um sistema para um restaurante.
 
 Este desafio deve ser feito por você em sua casa. Gaste o tempo que você quiser, mas nos conte o tempo que levou para realizar o desafio.
 
-# Instruções de entrega do desafio
+# Tempo necessário
 
-1. Primeiro, faça um fork deste projeto para sua conta no Github (crie uma se você não possuir).
-2. Em seguida, implemente o projeto conforme as instruções a seguir, em seu clone local.
-3. Por fim, envie via e-mail com o link do desafio, avisando quanto tempo levou para faze-lo.
+Foi necessário 3 dias úteis para realização do desafio, considerando um dia útil de trabalho entre 9:00 e 18:00.
 
-# Descrição do projeto
+# Github
 
-Precisamos que você crie uma API REST-FULL para a utilização de restaurante, que poderá ser utilizada para mobile ou um SPA.
+Link do repositório: 
+https://github.com/gabrielbrelaz7/desafio-multiplier-back-end
 
-**Sua aplicação DEVE:**
+# Preparação do ambiente
 
-1. Fazer login funcionario(garçom):
-- Deve apenas visualizar seus pedidos
+Para que o sistema funcione corretamente em sua máquina local, realize as etapas seguinte.
 
-2. Fazer login funcionario(cozinheiro).
-- Deve visualizar todos os pedidos em andamento e há fazer
-
-> Não precisa ter login cliente
-
-3. Cadastro de Clientes (nome, CPF)
-4. Fazer o cadastro das mesas do restaurante (número da mesa).
-5. Fazer o cadastro de cardapios (cardapios com os itens do cardapio).
-6. Fazer o pedido para a mesa do cliente.
-7. Listar todos os pedidos (filtros: dia, semana, mês, por mesa, por cliente).
-8. Listar pedidos em andamento, (para o garçom).
-9. Listar pedidos há fazer e em andamento, (para o cozinheiro).
-10. Listar por cliente, maior pedido, primeiro pedido, último pedido.
-
-11. População de dados:
- - Deve possuir uma base com 10K clientes
- - 50 cardapios
- - 400K pedidos
-
-> Dica: Utilize a biblioteca [faker](https://github.com/fakerphp/faker) para gerar os dados 😄
-
-**Sua aplicação web NÃO PRECISA:**
-
-1. Não precisa estar hospedada em nenhum servidor.
-2. Testes unitários (pontos extras se fizer)
-3. Testes integrados (pontos extras se fizer)
-
-# Tecnologias que deve estar presentes no desafio
-
-- Laravel (obrigatório)
-- MySQL ou MariaDB
-- PHP
-
-**Não necessário mas se tiver será um diferencial**
-
-- Testes Unitários
-- Testes integrados
-
-# Avaliação
-
-Seu projeto será avaliado de acordo com os seguintes critérios.
-
-1. Sua aplicação preenche os requerimentos básicos?
-2. Você documentou a maneira de configurar o ambiente e rodar sua aplicação?
-3. Você seguiu as instruções de envio do desafio?
-4. Boas práticas RestFull
-5. Boas práticas Laravel
-6. Clean Code
-7. SOLID
-8. Performance consultas
-
-Adicionalmente, tentaremos verificar sua experiência com programação funcional a partir da estrutura de seu projeto.
-
----
-
-## Boa sorte!
+1. Faça o clone do repositório do Github para sua máquina local
+2. Rode o comando composer install dentro da pasta do desafio, para instalar todas as depepencias do sistema em Laravel
+3. Crie duas base de dados em um Banco de Dados MariaDB, sendo a primeira com nome de multiplier, e a segunda com nome de multiplier_test
+4. Utilize o comando "php artisan migrate --seed" para rodar as migrations e seeds na base de dados multiplier
+5. Utilize o comando "php artisan migrate --seed --env=testing" para rodar as migrations e seeds na base de dados multiplier_test  
+6. Inicie a aplicação Laravel utilizando o comando "php artisan serve"
+7. Para realizar o testes, utilize o comando "./vendor/bin/phpunit"
+8. Se você chegou nesta etapa com sucesso, você já pode utilizar os endpoints da API, recomendo a utilização do programa POSTMAN e importar a collection que está presente neste repositório.
