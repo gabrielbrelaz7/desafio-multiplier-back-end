@@ -1,0 +1,1088 @@
+{
+	"info": {
+		"_postman_id": "14038a56-a5a9-456e-a8f6-cdaf333cdc71",
+		"name": "Restaurante API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cadastros",
+			"item": [
+				{
+					"name": "Clientes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcyMDAyNiwiZXhwIjoxNjU0NzIzNjI2LCJuYmYiOjE2NTQ3MjAwMjYsImp0aSI6ImJRaE5DWWlLU0RpbTF5ZkoiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.j4PgQ6XOax6cUGTfnJogKXV4L2190NaJoTvp7mwlGZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nome",
+									"value": "Cliente ",
+									"type": "text"
+								},
+								{
+									"key": "sobrenome",
+									"value": "Teste",
+									"type": "text"
+								},
+								{
+									"key": "cpf",
+									"value": "15268076701",
+									"type": "text"
+								},
+								{
+									"key": "requester",
+									"value": "gerente",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/clientes/cadastrar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clientes",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mesas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcyMDAyNiwiZXhwIjoxNjU0NzIzNjI2LCJuYmYiOjE2NTQ3MjAwMjYsImp0aSI6ImJRaE5DWWlLU0RpbTF5ZkoiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.j4PgQ6XOax6cUGTfnJogKXV4L2190NaJoTvp7mwlGZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mesas",
+									"value": "11",
+									"type": "text"
+								},
+								{
+									"key": "requester",
+									"value": "gerente",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/mesas/cadastrar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"mesas",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cardapios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcyMDAyNiwiZXhwIjoxNjU0NzIzNjI2LCJuYmYiOjE2NTQ3MjAwMjYsImp0aSI6ImJRaE5DWWlLU0RpbTF5ZkoiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.j4PgQ6XOax6cUGTfnJogKXV4L2190NaJoTvp7mwlGZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nomeCardapio",
+									"value": "Cardápio Teste",
+									"type": "text"
+								},
+								{
+									"key": "nomeProduto",
+									"value": "{\"produtos\":[\"Produto1\",\"Produto2\"]}",
+									"type": "text"
+								},
+								{
+									"key": "precoProduto",
+									"value": "{\"precos\":[\"90\",\"34\"]}",
+									"type": "text"
+								},
+								{
+									"key": "descricaoProduto",
+									"value": "{\"descricoes\":[\"Descricao1\",\"Descricao2\"]}",
+									"type": "text"
+								},
+								{
+									"key": "requester",
+									"value": "gerente",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/cardapios/cadastrar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cardapios",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedidos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcyMDAyNiwiZXhwIjoxNjU0NzIzNjI2LCJuYmYiOjE2NTQ3MjAwMjYsImp0aSI6ImJRaE5DWWlLU0RpbTF5ZkoiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.j4PgQ6XOax6cUGTfnJogKXV4L2190NaJoTvp7mwlGZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cliente_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "garcom_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "mesa_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "para fazer",
+									"type": "text"
+								},
+								{
+									"key": "produtos",
+									"value": "{\"produtos\": [\"Produto1\",\"Produto2\"]}",
+									"type": "text"
+								},
+								{
+									"key": "total",
+									"value": "95",
+									"type": "text"
+								},
+								{
+									"key": "requester",
+									"value": "gerente",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pedidos/cadastrar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pedidos",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Autenticação",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "gerente@restaurante.com.br",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuário logado",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcxOTYxNiwiZXhwIjoxNjU0NzIzMjE2LCJuYmYiOjE2NTQ3MTk2MTYsImp0aSI6IkZuR0JZTWU4RmNxdkh6SUQiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.FjoREF-nZ-iCiwzVm8K083Tdaw0sF7lyxKFIKTGLR8U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/me",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gerar novo token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcxOTYxNiwiZXhwIjoxNjU0NzIzMjE2LCJuYmYiOjE2NTQ3MTk2MTYsImp0aSI6IkZuR0JZTWU4RmNxdkh6SUQiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.FjoREF-nZ-iCiwzVm8K083Tdaw0sF7lyxKFIKTGLR8U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/refresh",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9yZWZyZXNoIiwiaWF0IjoxNjU0NzE5NjE2LCJleHAiOjE2NTQ3MjMyNzUsIm5iZiI6MTY1NDcxOTY3NSwianRpIjoiRnYxSmsyUXU5aTlOQVo4MCIsInN1YiI6MSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.EBMk2I0ZJMDR2KZmkWksCrZclLfyKVijx0IreKVL_-s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Listar",
+			"item": [
+				{
+					"name": "Pedidos do Garçom",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcyMDAyNiwiZXhwIjoxNjU0NzIzNjI2LCJuYmYiOjE2NTQ3MjAwMjYsImp0aSI6ImJRaE5DWWlLU0RpbTF5ZkoiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.j4PgQ6XOax6cUGTfnJogKXV4L2190NaJoTvp7mwlGZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pedidos/listar/garcom/1?requester=gerente",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pedidos",
+								"listar",
+								"garcom",
+								"1"
+							],
+							"query": [
+								{
+									"key": "requester",
+									"value": "gerente"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedidos do Cozinheiro",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcyMDAyNiwiZXhwIjoxNjU0NzIzNjI2LCJuYmYiOjE2NTQ3MjAwMjYsImp0aSI6ImJRaE5DWWlLU0RpbTF5ZkoiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.j4PgQ6XOax6cUGTfnJogKXV4L2190NaJoTvp7mwlGZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pedidos/listar/cozinheiro?requester=cozinheiro",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pedidos",
+								"listar",
+								"cozinheiro"
+							],
+							"query": [
+								{
+									"key": "requester",
+									"value": "cozinheiro"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedidos por cliente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcyMDAyNiwiZXhwIjoxNjU0NzIzNjI2LCJuYmYiOjE2NTQ3MjAwMjYsImp0aSI6ImJRaE5DWWlLU0RpbTF5ZkoiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.j4PgQ6XOax6cUGTfnJogKXV4L2190NaJoTvp7mwlGZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/clientes/listar/9591?requester=gerente",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clientes",
+								"listar",
+								"9591"
+							],
+							"query": [
+								{
+									"key": "ultimo",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "requester",
+									"value": "gerente"
+								},
+								{
+									"key": "maior",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "primeiro",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedidos por mesa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcyMDAyNiwiZXhwIjoxNjU0NzIzNjI2LCJuYmYiOjE2NTQ3MjAwMjYsImp0aSI6ImJRaE5DWWlLU0RpbTF5ZkoiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.j4PgQ6XOax6cUGTfnJogKXV4L2190NaJoTvp7mwlGZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pedidos/listar?requester=gerente&mesa=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pedidos",
+								"listar"
+							],
+							"query": [
+								{
+									"key": "requester",
+									"value": "gerente"
+								},
+								{
+									"key": "mesa",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedidos por dia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcyMDAyNiwiZXhwIjoxNjU0NzIzNjI2LCJuYmYiOjE2NTQ3MjAwMjYsImp0aSI6ImJRaE5DWWlLU0RpbTF5ZkoiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.j4PgQ6XOax6cUGTfnJogKXV4L2190NaJoTvp7mwlGZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pedidos/listar?requester=gerente&dia=2022-06-08",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pedidos",
+								"listar"
+							],
+							"query": [
+								{
+									"key": "requester",
+									"value": "gerente"
+								},
+								{
+									"key": "dia",
+									"value": "2022-06-08"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedidos por semana",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcyMDAyNiwiZXhwIjoxNjU0NzIzNjI2LCJuYmYiOjE2NTQ3MjAwMjYsImp0aSI6ImJRaE5DWWlLU0RpbTF5ZkoiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.j4PgQ6XOax6cUGTfnJogKXV4L2190NaJoTvp7mwlGZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pedidos/listar?requester=gerente&semana=true",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pedidos",
+								"listar"
+							],
+							"query": [
+								{
+									"key": "requester",
+									"value": "gerente"
+								},
+								{
+									"key": "semana",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedidos por mês",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcyMDAyNiwiZXhwIjoxNjU0NzIzNjI2LCJuYmYiOjE2NTQ3MjAwMjYsImp0aSI6ImJRaE5DWWlLU0RpbTF5ZkoiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.j4PgQ6XOax6cUGTfnJogKXV4L2190NaJoTvp7mwlGZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pedidos/listar?requester=gerente&mes=05",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pedidos",
+								"listar"
+							],
+							"query": [
+								{
+									"key": "requester",
+									"value": "gerente"
+								},
+								{
+									"key": "mes",
+									"value": "05"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Todos os pedidos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcyMDAyNiwiZXhwIjoxNjU0NzIzNjI2LCJuYmYiOjE2NTQ3MjAwMjYsImp0aSI6ImJRaE5DWWlLU0RpbTF5ZkoiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.j4PgQ6XOax6cUGTfnJogKXV4L2190NaJoTvp7mwlGZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pedidos/listar?requester=gerente",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pedidos",
+								"listar"
+							],
+							"query": [
+								{
+									"key": "ultimo",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "primeiro",
+									"value": "dwdwd",
+									"disabled": true
+								},
+								{
+									"key": "requester",
+									"value": "gerente"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuários",
+			"item": [
+				{
+					"name": "Listar usuários",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcxNDg3NywiZXhwIjoxNjU0NzE4NDc3LCJuYmYiOjE2NTQ3MTQ4NzcsImp0aSI6InpzRDRJNWtCTElTN2ppbDMiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.VCIYhH3Sm613G_JzeDtKrGu1zIrFcyRfnS11lHPtqbY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/usuarios/listar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"usuarios",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar gerente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcxOTcwNCwiZXhwIjoxNjU0NzIzMzA0LCJuYmYiOjE2NTQ3MTk3MDQsImp0aSI6InR0NXhXWU5WdGpYeFR4MzkiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.uzt4mTIwnHSbg4-ClUR-Xm5BNusrEQzscCYqg1NHFD0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Gerente",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "gerente@gerente.com.br",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "gerente",
+									"type": "text"
+								},
+								{
+									"key": "requester",
+									"value": "gerente",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/usuarios/cadastrar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"usuarios",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar garçom",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcxOTcwNCwiZXhwIjoxNjU0NzIzMzA0LCJuYmYiOjE2NTQ3MTk3MDQsImp0aSI6InR0NXhXWU5WdGpYeFR4MzkiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.uzt4mTIwnHSbg4-ClUR-Xm5BNusrEQzscCYqg1NHFD0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Garçom",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "garcom@garcom.com.br",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "garcom",
+									"type": "text"
+								},
+								{
+									"key": "requester",
+									"value": "gerente",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/usuarios/cadastrar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"usuarios",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar cozinheiro",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcxOTcwNCwiZXhwIjoxNjU0NzIzMzA0LCJuYmYiOjE2NTQ3MTk3MDQsImp0aSI6InR0NXhXWU5WdGpYeFR4MzkiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.uzt4mTIwnHSbg4-ClUR-Xm5BNusrEQzscCYqg1NHFD0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Cozinheiro",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "cozinheiro@cozinheiro.com.br",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "cozinheiro",
+									"type": "text"
+								},
+								{
+									"key": "requester",
+									"value": "gerente",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/usuarios/cadastrar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"usuarios",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar usuário",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY1NDcxOTcwNCwiZXhwIjoxNjU0NzIzMzA0LCJuYmYiOjE2NTQ3MTk3MDQsImp0aSI6InR0NXhXWU5WdGpYeFR4MzkiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.uzt4mTIwnHSbg4-ClUR-Xm5BNusrEQzscCYqg1NHFD0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Gabriel Brelaz\",\r\n    \"email\": \"gabrielbrelaz@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"requester\": \"gerente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/usuarios/atualizar/11",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"usuarios",
+								"atualizar",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
