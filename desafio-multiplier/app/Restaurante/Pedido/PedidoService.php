@@ -19,7 +19,7 @@ class PedidoService implements PedidoServiceInterface
             $pedido->garcom_id = $dados->validated()['garcom_id'];
             $pedido->mesa_id = $dados->validated()['mesa_id'];
             $pedido->produtos = json_encode($produtos);
-            $pedido->status = $dados->validated()['cliente_id'];
+            $pedido->status = $dados->validated()['status'];
             $pedido->total = $dados->validated()['total'];
     
             $pedido->save();

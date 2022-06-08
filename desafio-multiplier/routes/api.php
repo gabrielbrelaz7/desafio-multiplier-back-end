@@ -59,7 +59,6 @@ Route::group(['middleware' => 'auth:api'], function () {
 });
 
 
-
 // Caso precise utilizar Faker PHP como requisição na API
     // Route::get('faker/clientes/{quantidade}', [FakerController::class, 'cadastrarClientes']);
     // Route::get('faker/cardapios/{quantidade}', [FakerController::class, 'cadastrarCardapios']);

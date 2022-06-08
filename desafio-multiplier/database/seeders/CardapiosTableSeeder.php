@@ -21,7 +21,9 @@ class CardapiosTableSeeder extends Seeder
         for ($i=1; $i <= 50; $i++) {
 
             DB::table('cardapios')->insert([
-                'nome' => $faker->word
+                'nome' => $faker->word,
+                'created_at' => now(),
+                'updated_at' => now()
             ]);
         }
     }

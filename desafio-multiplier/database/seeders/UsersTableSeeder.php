@@ -18,7 +18,9 @@ class UsersTableSeeder extends Seeder
             'name' => 'Gerente',
             'email' => 'gerente@restaurante.com.br',
             'type' => 'gerente',
-            'password' => bcrypt('123456')
+            'password' => bcrypt('123456'),
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
 
@@ -28,7 +30,9 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Garçom ' . $i,
                 'email' => 'garcom'.$i.'@restaurante.com.br',
                 'type' => 'garcom',
-                'password' => bcrypt('123456')
+                'password' => bcrypt('123456'),
+                'created_at' => now(),
+                'updated_at' => now()
             ]);
 
         }
@@ -40,7 +44,9 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Cozinheiro ' . $i,
                 'email' => 'cozinheiro'.$i.'@restaurante.com.br',
                 'type' => 'cozinheiro',
-                'password' => bcrypt('123456')
+                'password' => bcrypt('123456'),
+                'created_at' => now(),
+                'updated_at' => now()
             ]);
 
         }

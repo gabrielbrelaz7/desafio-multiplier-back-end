@@ -22,7 +22,7 @@ class PedidoTest extends TestCase
 
         $response = $this->json('POST', '/api/pedidos/cadastrar',$dados);
         $response->assertStatus(401);
-        $response->assertJson(['message' => "Unauthenticated."]);
+        $response->assertJson(['message' => 'Unauthenticated.']);
         
     }
 
@@ -76,7 +76,7 @@ class PedidoTest extends TestCase
     {
 
         $user = User::factory()->create();
-        $response = $this->actingAs($user, 'api')->json('GET', '/api/pedidos/listar?requester=gerente&mesa=2');
+        $response = $this->actingAs($user, 'api')->json('GET', '/api/pedidos/listar?requester=gerente&mesa=1');
         $response->assertStatus(200);
 
         $response->assertJsonStructure(
@@ -176,7 +176,7 @@ class PedidoTest extends TestCase
     {
 
         $user = User::factory()->create();
-        $response = $this->actingAs($user, 'api')->json('GET', '/api/pedidos/listar/garcom/2?requester=garcom');
+        $response = $this->actingAs($user, 'api')->json('GET', '/api/pedidos/listar/garcom/1?requester=garcom');
         $response->assertStatus(200);
 
         $response->assertJsonStructure(

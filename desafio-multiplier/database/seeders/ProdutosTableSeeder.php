@@ -23,7 +23,9 @@ class ProdutosTableSeeder extends Seeder
                 'cardapio_id' => $i,
                 'nome' => $faker->word,
                 'descricao' => $faker->sentence,
-                'preco' => $faker->randomNumber(2, true)
+                'preco' => $faker->randomNumber(2, true),
+                'created_at' => $faker->date('Y-m-d H:i:s'),
+                'updated_at' => now()
             ]);
         }
     }

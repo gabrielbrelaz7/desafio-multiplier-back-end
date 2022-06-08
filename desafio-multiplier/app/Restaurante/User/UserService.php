@@ -58,7 +58,8 @@ class UserService implements UserServiceInterface
             $usuario = User::findOrFail($id) -> update([
                 'name' => $dados->validated()['name'],
                 'email' => $dados->validated()['email'],
-                'password' => bcrypt($dados->validated()['password'])
+                'password' => bcrypt($dados->validated()['password']),
+                'uptaded_at' => now()
                 ]
             );
     

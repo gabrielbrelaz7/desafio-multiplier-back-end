@@ -22,7 +22,7 @@ class CardapioTest extends TestCase
 
         $response = $this->json('POST', '/api/cardapios/cadastrar', $dados);
         $response->assertStatus(401);
-        $response->assertJson(['message' => "Unauthenticated."]);
+        $response->assertJson(['message' => 'Unauthenticated.']);
         
     }
 
@@ -40,12 +40,12 @@ class CardapioTest extends TestCase
         $user = User::factory()->create();
         $response = $this->actingAs($user, 'api')->json('POST', '/api/cardapios/cadastrar', $dados);
         $response->assertStatus(201);
-        $response->assertJson(['mensagem' => 'Cardapio cadastrado com sucesso']);
+        $response->assertJson(['mensagem' => 'Cardápio cadastrado com sucesso']);
 
         $response->assertJsonStructure([
             
             'mensagem',
-            'cardapio' => [
+            'cardápio' => [
                 'nome',
                 'updated_at',
                 'created_at',

@@ -22,6 +22,8 @@ class MesasTableSeeder extends Seeder
         
             DB::table('mesas')->insert([
                 'mesas' => $i,
+                'created_at' => now(),
+                'updated_at' => now()
             ]);
 
         }

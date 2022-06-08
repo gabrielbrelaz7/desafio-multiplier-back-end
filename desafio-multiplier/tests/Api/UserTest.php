@@ -21,9 +21,9 @@ class UserTest extends TestCase
             'password_confirmation' => '123456'
         ];
 
-        $response = $this->json('POST', '/api/usuarios', $dados);
+        $response = $this->json('POST', '/api/usuarios/cadastrar', $dados);
         $response->assertStatus(401);
-        $response->assertJson(['message' => "Unauthenticated."]);
+        $response->assertJson(['message' => 'Unauthenticated.']);
         
     }
 
@@ -32,7 +32,7 @@ class UserTest extends TestCase
     {
         $dados = [
             'name' => 'Gabriel Brelaz',
-            'email' => 'garcom23@gmail.com',
+            'email' => 'garcom@gmail.com',
             'type' => 'garcom',
             'requester' => 'gerente',
             'password' => '123456',
@@ -40,7 +40,7 @@ class UserTest extends TestCase
         ];
         
         $user = User::factory()->create();
-        $response = $this->actingAs($user, 'api')->json('POST', '/api/usuarios', $dados);
+        $response = $this->actingAs($user, 'api')->json('POST', '/api/usuarios/cadastrar', $dados);
         $response->assertStatus(201);
         $response->assertJson(['mensagem' => 'Usuário cadastrado com sucesso']);
 
@@ -51,7 +51,7 @@ class UserTest extends TestCase
     {
         $dados = [
             'name' => 'Gabriel Brelaz',
-            'email' => 'cozinheiro23@gmail.com',
+            'email' => 'cozinheiro@gmail.com',
             'type' => 'cozinheiro',
             'requester' => 'gerente',
             'password' => '123456',
@@ -59,7 +59,7 @@ class UserTest extends TestCase
         ];
         
         $user = User::factory()->create();
-        $response = $this->actingAs($user, 'api')->json('POST', '/api/usuarios', $dados);
+        $response = $this->actingAs($user, 'api')->json('POST', '/api/usuarios/cadastrar', $dados);
         $response->assertStatus(201);
         $response->assertJson(['mensagem' => 'Usuário cadastrado com sucesso']);
 

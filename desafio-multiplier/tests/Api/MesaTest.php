@@ -19,7 +19,7 @@ class MesaTest extends TestCase
 
         $response = $this->json('POST', '/api/mesas/cadastrar', $dados);
         $response->assertStatus(401);
-        $response->assertJson(['message' => "Unauthenticated."]);
+        $response->assertJson(['message' => 'Unauthenticated.']);
         
     }
 

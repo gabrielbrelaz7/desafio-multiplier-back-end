@@ -21,7 +21,7 @@ class ClienteTest extends TestCase
 
         $response = $this->json('POST', '/api/clientes/cadastrar',$dados);
         $response->assertStatus(401);
-        $response->assertJson(['message' => "Unauthenticated."]);
+        $response->assertJson(['message' => 'Unauthenticated.']);
         
     }
 
@@ -47,7 +47,7 @@ class ClienteTest extends TestCase
     {
 
         $user = User::factory()->create();
-        $response = $this->actingAs($user, 'api')->json('GET', '/api/clientes/listar/257?requester=gerente');
+        $response = $this->actingAs($user, 'api')->json('GET', '/api/clientes/listar/1?requester=gerente');
         $response->assertStatus(200);
 
         $response->assertJsonStructure(
@@ -72,7 +72,7 @@ class ClienteTest extends TestCase
     {
 
         $user = User::factory()->create();
-        $response = $this->actingAs($user, 'api')->json('GET', '/api/clientes/listar/257?requester=gerente&maior=true');
+        $response = $this->actingAs($user, 'api')->json('GET', '/api/clientes/listar/1?requester=gerente&maior=true');
         $response->assertStatus(200);
 
         $response->assertJsonStructure(
@@ -97,7 +97,7 @@ class ClienteTest extends TestCase
     {
 
         $user = User::factory()->create();
-        $response = $this->actingAs($user, 'api')->json('GET', '/api/clientes/listar/257?requester=gerente&primeiro=true');
+        $response = $this->actingAs($user, 'api')->json('GET', '/api/clientes/listar/1?requester=gerente&primeiro=true');
         $response->assertStatus(200);
 
         $response->assertJsonStructure(
@@ -123,7 +123,7 @@ class ClienteTest extends TestCase
     {
 
         $user = User::factory()->create();
-        $response = $this->actingAs($user, 'api')->json('GET', '/api/clientes/listar/257?requester=gerente&ultimo=true');
+        $response = $this->actingAs($user, 'api')->json('GET', '/api/clientes/listar/1?requester=gerente&ultimo=true');
         $response->assertStatus(200);
 
         $response->assertJsonStructure(

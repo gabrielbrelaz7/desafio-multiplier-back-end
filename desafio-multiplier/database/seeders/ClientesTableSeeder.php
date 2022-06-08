@@ -22,7 +22,9 @@ class ClientesTableSeeder extends Seeder
             DB::table('clientes')->insert([
                 'nome' => $faker->firstName,
                 'sobrenome' => $faker->lastName,
-                'cpf' => $faker->randomNumber(5, true),
+                'cpf' => $faker->randomNumber(9, true),
+                'created_at' => $faker->date('Y-m-d H:i:s'),
+                'updated_at' => now()
             ]);
         }
     }
