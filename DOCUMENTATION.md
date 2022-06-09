@@ -43,7 +43,7 @@ Para que o sistema funcione corretamente em sua máquina local, realize as segui
  php artisan db:seed --class=PedidosTableSeeder 
  php artisan db:seed --class=ProdutosTableSeeder 
 
-7. Utilize o comando "php artisan migrate --env=testing" para rodar as migrations na base de dados multiplier
+7. Utilize o comando "php artisan migrate --env=testing" para rodar as migrations na base de dados multiplier_test
 
 8. Utilize o comando "php artisan db:seed --class=TestesTableSeeder --env=testing" para rodar as seeds na base de dados multiplier_test  
 
