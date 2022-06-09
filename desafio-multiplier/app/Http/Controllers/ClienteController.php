@@ -29,7 +29,7 @@ class ClienteController extends Controller
         if($dados->fails()){
             return response()->json($dados->errors()->toJson(), 400);
         }
-        else if($request->requester !== 'gerente'){
+        else if($request->requester !== 'gerente' && $request->requester !== 'garcom'){
             return response()->json("Usuário não tem privilégios para realizer esta ação.", 401);
         }
         else{

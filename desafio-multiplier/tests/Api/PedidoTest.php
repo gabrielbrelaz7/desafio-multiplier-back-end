@@ -100,8 +100,11 @@ class PedidoTest extends TestCase
     public function testeGetPedidosPorDia()
     {
 
+        $dateNow = date("Y-m-d");
+        
+        // Para este teste funcionar, é necessário ter um pedido com a data atual
         $user = User::factory()->create();
-        $response = $this->actingAs($user, 'api')->json('GET', '/api/pedidos/listar?requester=gerente&dia=2022-06-08');
+        $response = $this->actingAs($user, 'api')->json('GET', '/api/pedidos/listar?requester=gerente&dia=' . $dateNow);
         $response->assertStatus(200);
 
         $response->assertJsonStructure(

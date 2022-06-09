@@ -12,6 +12,8 @@ class UserTest extends TestCase
     public function testeCadastrarUsuarioSemMiddleware()
     {
 
+        // Para este teste funcionar, é necessário que crie sempre um usuário de teste com email único na base de dados
+
         $dados = [
             'name' => 'Gabriel Brelaz',
             'email' => 'gabrielbrelaz@gmail.com',

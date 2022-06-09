@@ -19,7 +19,7 @@ class PedidosTableSeeder extends Seeder
 
         $faker = Factory::create('pt_BR');
 
-        for ($i=1; $i <= 10; $i++) {
+        for ($i=1; $i <= 1; $i++) {
 
             DB::table('pedidos')->insert([
                 'cliente_id' => 1,
@@ -28,7 +28,21 @@ class PedidosTableSeeder extends Seeder
                 'status' => $faker->randomElement(['para fazer', 'em andamento']),
                 'produtos' => json_encode($faker->words(3)),
                 'total' => $faker->randomNumber(2, true),
-                'created_at' => $faker->date(),
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+        }
+
+        for ($i=1; $i <= 9; $i++) {
+
+            DB::table('pedidos')->insert([
+                'cliente_id' => 1,
+                'garcom_id' => $faker->numberBetween(1, 5),
+                'mesa_id' => $faker->numberBetween(1, 10),
+                'status' => $faker->randomElement(['para fazer', 'em andamento']),
+                'produtos' => json_encode($faker->words(3)),
+                'total' => $faker->randomNumber(2, true),
+                'created_at' => $faker->date('Y-m-d H:i:s'),
                 'updated_at' => now()
             ]);
         }
@@ -42,7 +56,7 @@ class PedidosTableSeeder extends Seeder
                 'status' => $faker->randomElement(['para fazer', 'em andamento']),
                 'produtos' => json_encode($faker->words(3)),
                 'total' => $faker->randomNumber(2, true),
-                'created_at' => $faker->date(),
+                'created_at' => $faker->date('Y-m-d H:i:s'),
                 'updated_at' => now()
             ]);
         }
