@@ -61,7 +61,7 @@ class PedidosTableSeeder extends Seeder
             ]);
         }
 
-        for ($i=1; $i <= 350; $i++) {
+        for ($i=1; $i <= 399950; $i++) {
 
             DB::table('pedidos')->insert([
                 'cliente_id' => $faker->numberBetween(1, 10000),
